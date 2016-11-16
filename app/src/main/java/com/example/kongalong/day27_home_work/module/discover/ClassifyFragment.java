@@ -488,9 +488,9 @@ public class ClassifyFragment extends BaseFragment implements OnBytesCallback,Ha
 
     public void showImage(String path,ImageView imageView){
 
-        mSampleImageLoad.setUrl(path)
-                .initParams()
-                .setImageSize(0,0)
+        mSampleImageLoad.initParams()
+                .setUrl(path)
+                .setImageSize(100,100)
                 .setImageView(imageView)
                 .attachToView();
     }

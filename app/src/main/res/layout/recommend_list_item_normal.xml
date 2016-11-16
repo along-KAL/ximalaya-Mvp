@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -9,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="听咨询"
+        android:layout_margin="10dp"
         android:layout_alignParentLeft="true"/>
 
     <TextView
@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="更多"
+        android:layout_margin="10dp"
         android:layout_alignParentRight="true"/>
 
     <LinearLayout
@@ -25,10 +26,9 @@
         android:layout_below="@+id/normal_more1">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
@@ -43,6 +43,11 @@
                 android:id="@+id/normal_text1"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/normal_image1"
+                android:layout_alignLeft="@+id/normal_image1"
+                android:layout_alignRight="@+id/normal_image1"
+                android:textColor="#6c6767"
                 android:text="--------------"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -50,14 +55,18 @@
                 android:id="@+id/normal_text2"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textColor="#beb9b9"
+                android:layout_below="@+id/normal_text1"
+                android:layout_alignLeft="@+id/normal_image1"
+                android:layout_alignRight="@+id/normal_image1"
+                android:textSize="12sp"
                 android:text="--------------"/>
-        </LinearLayout>
+        </RelativeLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
@@ -72,6 +81,11 @@
                 android:id="@+id/normal_text11"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/normal_image11"
+                android:layout_alignLeft="@+id/normal_image11"
+                android:layout_alignRight="@+id/normal_image11"
+                android:textColor="#6c6767"
                 android:text="--------------"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -79,14 +93,18 @@
                 android:id="@+id/normal_text22"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textColor="#beb9b9"
+                android:layout_below="@+id/normal_text11"
+                android:layout_alignLeft="@+id/normal_image11"
+                android:layout_alignRight="@+id/normal_image11"
+                android:textSize="12sp"
                 android:text="--------------"/>
-        </LinearLayout>
+        </RelativeLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
@@ -101,6 +119,11 @@
                 android:id="@+id/normal_text111"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/normal_image111"
+                android:layout_alignLeft="@+id/normal_image111"
+                android:layout_alignRight="@+id/normal_image111"
+                android:textColor="#6c6767"
                 android:text="--------------"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -108,9 +131,14 @@
                 android:id="@+id/normal_text222"
                 android:lines="2"
                 android:ellipsize="end"
+                android:textColor="#beb9b9"
+                android:layout_below="@+id/normal_text111"
+                android:layout_alignLeft="@+id/normal_text111"
+                android:layout_alignRight="@+id/normal_text111"
+                android:textSize="12sp"
                 android:text="--------------"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </LinearLayout>

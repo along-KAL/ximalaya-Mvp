@@ -22,10 +22,10 @@ public class CompressBitmap {
     public static Bitmap compressFromBytes(byte[] bytes,int width, int height){
 
 
-        return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        //return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
 
 
-       /* if(bytes==null){
+        if(bytes==null){
             return null;
         }
 
@@ -38,7 +38,7 @@ public class CompressBitmap {
         //二次采样
         option.inJustDecodeBounds = false;
         //返回最终bitmap
-        return BitmapFactory.decodeByteArray(bytes,0,bytes.length,option);*/
+        return BitmapFactory.decodeByteArray(bytes,0,bytes.length,option);
     }
 
 

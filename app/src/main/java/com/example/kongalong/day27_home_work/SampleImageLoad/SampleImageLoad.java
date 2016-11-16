@@ -110,15 +110,18 @@ public class SampleImageLoad {
 
 
     public void attachToView(){
+
+        final Params tempParams = mParams;
+
         //设置标记，防止错位
-        mParams.mImageView.setTag(mParams.mUri);
+        tempParams.mImageView.setTag(tempParams.mUri);
         Runnable loadTask = new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
             @Override
             public void run() {
                // Log.d("flag", "initParams: " +params);
-                Bitmap bitmap = beginLoadBitmap(mParams.mUri);
-                Obj myObj = new Obj(bitmap,mParams.mImageView,mParams.mUri);
+                Bitmap bitmap = beginLoadBitmap(tempParams.mUri);
+                Obj myObj = new Obj(bitmap,tempParams.mImageView,tempParams.mUri);
                 Message msg = mHandler.obtainMessage();
                 msg.obj = myObj;
                 msg.what = Constants.MESSAGE_ONE;
@@ -136,6 +139,7 @@ public class SampleImageLoad {
     }
 
     public SampleImageLoad setUrl(String url){
+
         mParams.mUri = url;
         return this;
     }
@@ -153,6 +157,9 @@ public class SampleImageLoad {
 
 
 
+
+
+
     //属性参数
    public class Params{
 
@@ -162,12 +169,17 @@ public class SampleImageLoad {
         private int mWidth;
         private int mHeight;
 
+
+
+
+
         //使用线程池异步加载图片
         // private boolean mAsyncAble = false;
 
 
     }
 
+    //通过handler发送 msg.obj
     public class Obj{
 
         private Bitmap mBitmap;
@@ -180,8 +192,6 @@ public class SampleImageLoad {
             mTag = tag;
         }
     }
-
-
 
 
 

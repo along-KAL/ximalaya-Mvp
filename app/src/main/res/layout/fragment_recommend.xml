@@ -10,6 +10,11 @@
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
         android:id = "@+id/pulltoreflesh"
+        android:divider="#ededea"
+        android:dividerHeight="8dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:layout_marginTop="-10dp"
         >
     </com.handmark.pulltorefresh.library.PullToRefreshListView>
     <TextView

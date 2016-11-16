@@ -11,7 +11,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.BaseAdapter;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.kongalong.day27_home_work.MyApp;
 import com.example.kongalong.day27_home_work.R;
+import com.example.kongalong.day27_home_work.SampleImageLoad.SampleImageLoad;
 import com.example.kongalong.day27_home_work.adapters.RecommendListAdapter;
 import com.example.kongalong.day27_home_work.adapters.RecommendPagerAdapter1;
 import com.example.kongalong.day27_home_work.adapters.RecommendPagerAdapter2;
@@ -27,7 +28,6 @@ import com.example.kongalong.day27_home_work.model.RecommendBeans1;
 import com.example.kongalong.day27_home_work.model.RecommendBeans2;
 import com.example.kongalong.day27_home_work.model.RecommendBeans3;
 import com.example.kongalong.day27_home_work.presenter.RecommendFragmentPresenter;
-import com.example.kongalong.day27_home_work.SampleImageLoad.SampleImageLoad;
 import com.example.kongalong.day27_home_work.utils.JsonParseUtil;
 import com.example.kongalong.day27_home_work.view.RecommendListViewView;
 import com.example.kongalong.day27_home_work.widget.CustomIndicator;
@@ -46,7 +46,7 @@ public class RecommendFragment extends BaseFragment implements
 
 
     private ListView mRecommendListView;
-    private BaseAdapter mRecommendListAdapter;
+    private RecommendListAdapter mRecommendListAdapter;
 
     private ViewPager mListViewHeaderViewPager1;
     private ViewPager mListViewHeaderViewPager2;
@@ -88,6 +88,7 @@ public class RecommendFragment extends BaseFragment implements
         return R.layout.fragment_recommend;
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void initViewAndEvent(View ret) {
@@ -108,7 +109,30 @@ public class RecommendFragment extends BaseFragment implements
 
         initViewPagerListener();
 
+        initListViewOnScrollListener();
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void initListViewOnScrollListener() {
+
+        mRecommendListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if(scrollState==SCROLL_STATE_IDLE){
+                    mRecommendListAdapter.setIsScroll(false);
+                    mRecommendListAdapter.notifyDataSetChanged();
+                }else{
+                    mRecommendListAdapter.setIsScroll(true);
+                }
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
     }
 
     @TargetApi(M)
@@ -251,7 +275,7 @@ public class RecommendFragment extends BaseFragment implements
         mRecommendListView.addHeaderView(header);
         mRecommendListView.addFooterView(footer);
         //设置适配器
-        mRecommendListAdapter = new RecommendListAdapter(getContext(), mRecommendlistData);
+        mRecommendListAdapter = new RecommendListAdapter(getActivity(), mRecommendlistData);
 
         mRecommendListView.setEmptyView(emptyView);
 
@@ -492,13 +516,12 @@ public class RecommendFragment extends BaseFragment implements
     }
 
 
-    //获取网络图片
+    //获取网络或本地图片
     public void showImage(String path,ImageView imageView){
 
-
-        mSampleImageLoad.setUrl(path)
-                .initParams()
-                .setImageSize(0,0)
+        mSampleImageLoad.initParams()
+                .setUrl(path)
+                .setImageSize(100,100)
                 .setImageView(imageView)
                 .attachToView();
     }

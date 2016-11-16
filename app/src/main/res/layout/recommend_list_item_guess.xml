@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -9,54 +8,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="猜你喜欢"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/guess_more1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="更多"
-        android:layout_alignParentRight="true"/>
+        android:textColor="#afadad"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"/>
+
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/guess_row_one"
-        android:layout_below="@+id/guess_more1">
+        android:layout_below="@+id/guess_title1"
+        >
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
         android:gravity="center">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/image_default"
             android:id="@+id/guess_image1"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guess_text1"
             android:lines="1"
+            android:textSize="13sp"
+            android:textColor="#6c6767"
+            android:layout_below="@+id/guess_image1"
+            android:layout_alignLeft="@+id/guess_image1"
+            android:layout_alignRight="@+id/guess_image1"
             android:ellipsize="end"
             android:text="--------------"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guess_text_class1"
+            android:textColor="#beb9b9"
+            android:layout_below="@+id/guess_text1"
+            android:layout_alignLeft="@+id/guess_image1"
+            android:layout_alignRight="@+id/guess_image1"
+            android:textSize="12sp"
             android:text="--------------"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
         android:gravity="center">
         <ImageView
@@ -70,6 +85,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/guess_text2"
             android:lines="1"
+            android:textSize="13sp"
+            android:textColor="#6c6767"
+            android:layout_below="@+id/guess_image2"
+            android:layout_alignLeft="@+id/guess_image2"
+            android:layout_alignRight="@+id/guess_image2"
             android:ellipsize="end"
             android:text="--------------"/>
         <TextView
@@ -77,15 +97,19 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:ellipsize="end"
+            android:textColor="#beb9b9"
+            android:textSize="12sp"
+            android:layout_below="@+id/guess_text2"
+            android:layout_alignLeft="@+id/guess_image2"
+            android:layout_alignRight="@+id/guess_image2"
             android:id="@+id/guess_text_class2"
             android:text="--------------"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
         android:gravity="center">
         <ImageView
@@ -99,6 +123,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/guess_text3"
             android:lines="1"
+            android:textSize="13sp"
+            android:layout_below="@+id/guess_image3"
+            android:layout_alignLeft="@+id/guess_image3"
+            android:layout_alignRight="@+id/guess_image3"
+            android:textColor="#6c6767"
             android:ellipsize="end"
             android:text="--------------"/>
         <TextView
@@ -106,13 +135,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/guess_text_class3"
             android:lines="1"
+            android:textColor="#beb9b9"
+            android:layout_below="@+id/guess_text3"
+            android:layout_alignLeft="@+id/guess_image3"
+            android:layout_alignRight="@+id/guess_image3"
+            android:textSize="12sp"
             android:ellipsize="end"
             android:text="--------------"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     </LinearLayout>
-
 
 
 
@@ -128,93 +161,119 @@
         android:layout_below="@+id/guess_row_one">
 
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/image_default"
-            android:id="@+id/guess_image4"
-            />
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/image_default"
+                android:id="@+id/guess_image4"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text4"
+                android:lines="1"
+                android:textSize="13sp"
+                android:layout_below="@+id/guess_image4"
+                android:layout_alignLeft="@+id/guess_image4"
+                android:layout_alignRight="@+id/guess_image4"
+                android:textColor="#6c6767"
+                android:ellipsize="end"
+                android:text="--------------"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text_class4"
+                android:lines="1"
+                android:textColor="#beb9b9"
+                android:layout_below="@+id/guess_text4"
+                android:layout_alignLeft="@+id/guess_image4"
+                android:layout_alignRight="@+id/guess_image4"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:text="--------------"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/guess_text4"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/image_default"
+                android:id="@+id/guess_image5"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text5"
+                android:lines="1"
+                android:textSize="13sp"
+                android:layout_below="@+id/guess_image5"
+                android:layout_alignLeft="@+id/guess_image5"
+                android:layout_alignRight="@+id/guess_image5"
+                android:textColor="#6c6767"
+                android:ellipsize="end"
+                android:text="--------------"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text_class5"
+                android:lines="1"
+                android:layout_below="@+id/guess_text5"
+                android:layout_alignLeft="@+id/guess_image5"
+                android:layout_alignRight="@+id/guess_image5"
+                android:textColor="#beb9b9"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:text="--------------"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/guess_text_class4"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/image_default"
+                android:id="@+id/guess_image6"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text6"
+                android:lines="1"
+                android:textSize="13sp"
+                android:layout_below="@+id/guess_image6"
+                android:layout_alignLeft="@+id/guess_image6"
+                android:layout_alignRight="@+id/guess_image6"
+                android:textColor="#6c6767"
+                android:ellipsize="end"
+                android:text="--------------"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guess_text_class6"
+                android:lines="1"
+                android:textColor="#beb9b9"
+                android:layout_below="@+id/guess_text6"
+                android:layout_alignLeft="@+id/guess_image6"
+                android:layout_alignRight="@+id/guess_image6"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:text="--------------"/>
+
+        </RelativeLayout>
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/image_default"
-            android:id="@+id/guess_image5"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guess_text5"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guess_text_class5"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/image_default"
-            android:id="@+id/guess_image6"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guess_text6"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guess_text_class6"
-            android:lines="1"
-            android:ellipsize="end"
-            android:text="--------------"/>
-
-    </LinearLayout>
-    </LinearLayout>
-
 
 </RelativeLayout>

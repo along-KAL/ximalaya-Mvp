@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kongalong.day27_home_work.Constants.Constans;
+import com.example.kongalong.day27_home_work.MainActivity;
+import com.example.kongalong.day27_home_work.MyApp;
 import com.example.kongalong.day27_home_work.R;
 import com.example.kongalong.day27_home_work.SampleImageLoad.SampleImageLoad;
 import com.example.kongalong.day27_home_work.model.RecommendBeans1;
@@ -26,13 +28,19 @@ public class RecommendListAdapter extends BaseAdapter {
     private Context mContext;
     private List<Object> mListData1;
 
-    SampleImageLoad mSampleImageLoad;
+    private SampleImageLoad mSampleImageLoad;
+
+
+    private boolean mIsScroll;
+
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public RecommendListAdapter(Context context, List<Object> listData1) {
         this.mContext = context;
         this.mListData1 = listData1;
-        mSampleImageLoad = new SampleImageLoad(context);
+        mSampleImageLoad = ((MyApp)((MainActivity)context).getApplication()).getSampleImageLoad();
+
+        mIsScroll = false;
     }
 
     @Override
@@ -70,6 +78,10 @@ public class RecommendListAdapter extends BaseAdapter {
         }
     }
 
+
+    public void setIsScroll(boolean isScroll){
+        mIsScroll = isScroll;
+    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder1 guessHolder = null;
@@ -139,35 +151,37 @@ public class RecommendListAdapter extends BaseAdapter {
 
 
                     guessHolder.mText1.setText(guessList.get(0).getTitle());
-                    showImage(guessList.get(0).getCoverLarge(),guessHolder.mImage1);
                     guessHolder.mclassText1.setText(guessList.get(0).getTags()
                             !=null?guessList.get(0).getTags():"");
 
                     guessHolder.mText2.setText(guessList.get(1).getTitle());
-                    showImage(guessList.get(1).getCoverLarge(),guessHolder.mImage2);
                     guessHolder.mclassText2.setText(guessList.get(1).getTags()
                             !=null?guessList.get(1).getTags():"");
 
                     guessHolder.mText3.setText(guessList.get(2).getTitle());
-                    showImage(guessList.get(2).getCoverLarge(),guessHolder.mImage3);
                     guessHolder.mclassText3.setText(guessList.get(2).getTags()
                             !=null?guessList.get(2).getTags():"");
 
                     guessHolder.mText4.setText(guessList.get(3).getTitle());
-                    showImage(guessList.get(3).getCoverLarge(),guessHolder.mImage4);
                     guessHolder.mclassText4.setText(guessList.get(3).getTags()
                             !=null?guessList.get(3).getTags():"");
 
                     guessHolder.mText5.setText(guessList.get(4).getTitle());
-                    showImage(guessList.get(4).getCoverLarge(),guessHolder.mImage5);
                     guessHolder.mclassText5.setText(guessList.get(4).getTags()
                             !=null?guessList.get(1).getTags():"");
 
                     guessHolder.mText6.setText(guessList.get(5).getTitle());
-                    showImage(guessList.get(5).getCoverLarge(),guessHolder.mImage6);
                     guessHolder.mclassText6.setText(guessList.get(5).getTags()
                             !=null?guessList.get(5).getTags():"");
 
+                    if(!mIsScroll){
+                        showImage(guessList.get(0).getCoverLarge(),guessHolder.mImage1);
+                        showImage(guessList.get(1).getCoverLarge(),guessHolder.mImage2);
+                        showImage(guessList.get(2).getCoverLarge(),guessHolder.mImage3);
+                        showImage(guessList.get(3).getCoverLarge(),guessHolder.mImage4);
+                        showImage(guessList.get(4).getCoverLarge(),guessHolder.mImage5);
+                        showImage(guessList.get(5).getCoverLarge(),guessHolder.mImage6);
+                    }
 
                     break;
                 case Constans.EDIT_RECOMMEND:
@@ -215,23 +229,27 @@ public class RecommendListAdapter extends BaseAdapter {
 
                     normalHolder.mText1.setText(editRecommendList.get(0)
                             .getTrackTitle());
-                    showImage(editRecommendList.get(0).getCoverLarge(),
-                            normalHolder.mImage1);
                     normalHolder.mShortText1.setText(editRecommendList.get(0).getTitle());
 
 
                     normalHolder.mText2.setText(editRecommendList.get(1)
                             .getTrackTitle());
-                    showImage(editRecommendList.get(1).getCoverLarge(),
-                            normalHolder.mImage2);
                     normalHolder.mShortText2.setText(editRecommendList.get(1).getTitle());
 
 
                     normalHolder.mText3.setText(editRecommendList.get(2)
                             .getTrackTitle());
-                    showImage(editRecommendList.get(2).getCoverLarge(),
-                            normalHolder.mImage3);
                     normalHolder.mShortText3.setText(editRecommendList.get(2).getTitle());
+
+
+                    if(!mIsScroll){
+                        showImage(editRecommendList.get(0).getCoverLarge(),
+                                normalHolder.mImage1);
+                        showImage(editRecommendList.get(1).getCoverLarge(),
+                                normalHolder.mImage2);
+                        showImage(editRecommendList.get(2).getCoverLarge(),
+                                normalHolder.mImage3);
+                    }
 
                     break;
              case Constans.QUALITY_POSITION:
@@ -275,15 +293,18 @@ public class RecommendListAdapter extends BaseAdapter {
                  qualityHolder.mText1.setText(speciaList.get(0).getTitle());
                  qualityHolder.mText2.setText(speciaList.get(0).getSubtitle());
                  qualityHolder.mText3.setText(speciaList.get(0).getFootnote());
-                 showImage(speciaList.get(0).getCoverPath(),
-                         qualityHolder.mImage1);
+
 
                  qualityHolder.mText11.setText(speciaList.get(1).getTitle());
                  qualityHolder.mText22.setText(speciaList.get(1).getSubtitle());
                  qualityHolder.mText33.setText(speciaList.get(1).getFootnote());
-                 showImage(speciaList.get(1).getCoverPath(),
-                         qualityHolder.mImage11);
 
+                 if(!mIsScroll){
+                     showImage(speciaList.get(0).getCoverPath(),
+                             qualityHolder.mImage1);
+                     showImage(speciaList.get(1).getCoverPath(),
+                             qualityHolder.mImage11);
+                 }
 
                     break;
                 case Constans.NORMAL_POSITION:
@@ -331,24 +352,27 @@ public class RecommendListAdapter extends BaseAdapter {
 
                     normalHolder.mText1.setText(normalList.getList().get(0)
                             .getTrackTitle());
-                    showImage(normalList.getList().get(0).getCoverLarge(),
-                            normalHolder.mImage1);
                     normalHolder.mShortText1.setText(normalList.getList().get(0).getTitle());
 
 
                     normalHolder.mText2.setText(normalList.getList().get(1)
                             .getTrackTitle());
-                    showImage(normalList.getList().get(1).getCoverLarge(),
-                            normalHolder.mImage2);
                     normalHolder.mShortText2.setText(normalList.getList().get(1).getTitle());
 
 
                     normalHolder.mText3.setText(normalList.getList().get(2)
                             .getTrackTitle());
-                    showImage(normalList.getList().get(2).getCoverLarge(),
-                            normalHolder.mImage3);
                     normalHolder.mShortText3.setText(normalList.getList().get(2).getTitle());
 
+
+                    if(!mIsScroll){
+                        showImage(normalList.getList().get(0).getCoverLarge(),
+                                normalHolder.mImage1);
+                        showImage(normalList.getList().get(1).getCoverLarge(),
+                                normalHolder.mImage2);
+                        showImage(normalList.getList().get(2).getCoverLarge(),
+                                normalHolder.mImage3);
+                    }
 
                     break;
                 default:
@@ -433,9 +457,9 @@ public class RecommendListAdapter extends BaseAdapter {
     }
     public void showImage(String path,ImageView imageView){
 
-        mSampleImageLoad.setUrl(path)
-                .initParams()
-                .setImageSize(33,33)
+        mSampleImageLoad.initParams()
+                .setUrl(path)
+                .setImageSize(100,100)
                 .setImageView(imageView)
                 .attachToView();
     }
