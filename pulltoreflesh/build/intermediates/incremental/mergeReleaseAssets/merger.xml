@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\Android\ASWorkSpace\day27_home_work\pulltoreflesh\src\main\assets"/><source path="E:\Android\ASWorkSpace\day27_home_work\pulltoreflesh\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\Android\ASWorkSpace\day27_home_work\pulltoreflesh\src\release\assets"/></dataSet></merger>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:background="#ffff">
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/discover_selector"
+            android:textColor="@drawable/font_selector"
+            android:button="@null"
+            android:text="发现"
+            android:gravity="center_horizontal"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/listenread_selector"
+            android:textColor="@drawable/font_selector"
+            android:button="@null"
+            android:text="订阅听"
+            android:gravity="center_horizontal"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/discover_selector"
+            android:textColor="@drawable/font_selector"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/loadlisten_selector"
+            android:textColor="@drawable/font_selector"
+            android:button="@null"
+            android:text="下载听"
+            android:gravity="center_horizontal"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/person_selector"
+            android:textColor="@drawable/font_selector"
+            android:button="@null"
+            android:text="我的"
+            android:gravity="center_horizontal"
+            />
+
+    </RadioGroup>
+
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/play_selector"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="15dp"
+    />
+
+</RelativeLayout>

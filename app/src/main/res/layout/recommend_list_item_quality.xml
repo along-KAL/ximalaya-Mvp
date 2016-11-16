@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/quality_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="精品听单"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/quality_more1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更多"
+        android:layout_alignParentRight="true"/>
+
+
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quality_row_one"
+        android:layout_below="@+id/quality_more1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_default"
+            android:id="@+id/quality_image1"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/quality_image1"
+            android:text="-------------------"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title2"
+            android:layout_toRightOf="@+id/quality_image1"
+            android:layout_below="@+id/quality_text_title1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="-------------------"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title3"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/quality_image1"
+            android:layout_below="@+id/quality_text_title2"
+            android:text="-------------------"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quality_row_one">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_default"
+            android:id="@+id/quality_image2"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title11"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/quality_image2"
+            android:text="-------------------"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title22"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/quality_image2"
+            android:layout_below="@+id/quality_text_title11"
+            android:text="-------------------"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quality_text_title33"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/quality_image2"
+            android:layout_below="@+id/quality_text_title22"
+            android:text="-------------------"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
