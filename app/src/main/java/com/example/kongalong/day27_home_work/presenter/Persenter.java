@@ -11,4 +11,5 @@ public interface Persenter<V extends MvpView> {
     void attachView(V mvpView);
 
     void detachView();
+
 }

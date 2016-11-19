@@ -1,15 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             tools:context="com.example.kongalong.day27_home_work.module.discover.RecommendFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
 
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
-        android:id = "@+id/recommend_pulltoreflesh"
+        android:id = "@+id/anchor_pulltoreflesh"
         android:divider="#ededea"
         android:dividerHeight="8dp"
         android:fadingEdge="none"
@@ -17,6 +17,7 @@
         android:layout_marginTop="-10dp"
         >
     </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,4 +25,5 @@
         android:text="正在为您加载..."
         android:textSize="20sp"
         android:layout_gravity="center"/>
-</FrameLayout>
+
+</LinearLayout>

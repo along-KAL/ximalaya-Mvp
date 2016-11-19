@@ -24,4 +24,7 @@ public class BasePresenter<T extends MvpView> implements Persenter{
     public T getMvpView() {
         return mMvpView;
     }
+
+
+
 }

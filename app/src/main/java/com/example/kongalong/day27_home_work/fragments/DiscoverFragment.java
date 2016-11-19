@@ -14,8 +14,8 @@ import com.example.kongalong.day27_home_work.base.BaseFragment;
 import com.example.kongalong.day27_home_work.module.discover.AnchorFragment;
 import com.example.kongalong.day27_home_work.module.discover.BroadcastFragment;
 import com.example.kongalong.day27_home_work.module.discover.ClassifyFragment;
-import com.example.kongalong.day27_home_work.module.discover.ListFragment;
 import com.example.kongalong.day27_home_work.module.discover.RecommendFragment;
+import com.example.kongalong.day27_home_work.module.discover.TopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +55,7 @@ public class DiscoverFragment extends BaseFragment {
         mDiscoverDatas.add(new RecommendFragment());
         mDiscoverDatas.add(new ClassifyFragment());
         mDiscoverDatas.add(new BroadcastFragment());
-        mDiscoverDatas.add(new ListFragment());
+        mDiscoverDatas.add(new TopFragment());
         mDiscoverDatas.add(new AnchorFragment());
 
         String[] tiltes = getActivity().getResources().getStringArray(R.array.discoverTitle);

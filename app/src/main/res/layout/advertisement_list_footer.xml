@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:id="@+id/find_classify_layout"
+        android:gravity="center_vertical"
         >
 
         <ImageView
@@ -26,7 +28,7 @@
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/recommend_list_footer_pager">
+        android:id="@+id/advertisement_list_footer_pager">
     </android.support.v4.view.ViewPager>
     <com.example.kongalong.day27_home_work.widget.CustomIndicator
         android:id="@+id/indicator3"

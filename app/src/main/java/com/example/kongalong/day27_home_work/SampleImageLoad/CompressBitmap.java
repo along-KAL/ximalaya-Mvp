@@ -21,8 +21,10 @@ public class CompressBitmap {
      */
     public static Bitmap compressFromBytes(byte[] bytes,int width, int height){
 
-
-        //return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        if(width==-1||height==-1){
+            return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        }
+        //
 
 
         if(bytes==null){

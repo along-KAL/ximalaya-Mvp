@@ -2,11 +2,16 @@ package com.example.kongalong.day27_home_work.presenter;
 
 import android.content.Context;
 
+import com.example.kongalong.day27_home_work.Constants.Constans;
 import com.example.kongalong.day27_home_work.Uri.Uri;
 import com.example.kongalong.day27_home_work.asynctasks.LoadBytesAsynctask;
 import com.example.kongalong.day27_home_work.callbacks.OnBytesCallback;
+import com.example.kongalong.day27_home_work.model.RecommendBeans1;
+import com.example.kongalong.day27_home_work.model.RecommendBeans2;
+import com.example.kongalong.day27_home_work.model.RecommendBeans3;
 import com.example.kongalong.day27_home_work.module.discover.RecommendFragment;
 import com.example.kongalong.day27_home_work.utils.InternetUtil;
+import com.example.kongalong.day27_home_work.utils.JsonParseUtil;
 import com.example.kongalong.day27_home_work.utils.SdCardUtils;
 import com.example.kongalong.day27_home_work.view.MvpView;
 
@@ -57,40 +62,77 @@ public class RecommendFragmentPresenter extends BasePresenter<RecommendFragment>
                 @Override
                 public void bytesCallback(List<byte[]> listBytes) {
 
-                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(),"json1",listBytes.get(0));
-                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(),"json2",listBytes.get(1));
-                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(),"json3",listBytes.get(2));
+                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(), Constans.RECOMMEND_JSON1,listBytes.get(0));
+                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(), Constans.RECOMMEND_JSON2,listBytes.get(1));
+                    SdCardUtils.saveFile(mContext.getExternalCacheDir().getAbsolutePath(), Constans.RECOMMEND_JSON3,listBytes.get(2));
 
-                    getMvpView().refleshData(listBytes);
+                    String jsonStr1 = null;
+                    String jsonStr2 = null;
+                    String jsonStr3 = null;
+                    //数据为空直接返回
+                    if(listBytes.get(0)==null||listBytes.get(1)==null||listBytes.get(2)==null){
+                        return;
+                    }
+                    jsonStr1 = new String(listBytes.get(0));
+                    jsonStr2 = new String(listBytes.get(1));
+                    jsonStr3 = new String(listBytes.get(2));
 
+                    RecommendBeans1 recommendBeans1 = JsonParseUtil
+                            .parseJsonToRecommendBeans1(jsonStr1);
+                    RecommendBeans2 recommendBeans2 = JsonParseUtil
+                            .parseJsonToRecommendBeans2(jsonStr2);
+                    RecommendBeans3 recommendBeans3 = JsonParseUtil
+                            .parseJsonToRecommendBeans3(jsonStr3);
+
+                    getMvpView().refleshData(recommendBeans1,recommendBeans2,recommendBeans3);
 
                 }
             }).execute(
-                    Uri.discoverRecommend1,
-                    Uri.discoverRecommend2,
-                    Uri.discoverRecommend3);
+                    Uri.DISCOVERRECOMMEND_URL1,
+                    Uri.DISCOVERRECOMMEND_URL2,
+                    Uri.DISCOVERRECOMMEND_URL3);
 
         }else{
             String path = mContext.getExternalCacheDir().getAbsolutePath()+ File.separator;
-            byte[] json1 = SdCardUtils.getBytesFromFile(path+"json1");
-            byte[] json2 = SdCardUtils.getBytesFromFile(path+"json2");
-            byte[] json3 = SdCardUtils.getBytesFromFile(path+"json3");
+            byte[] json1 = SdCardUtils.getBytesFromFile(path+ Constans.RECOMMEND_JSON1);
+            byte[] json2 = SdCardUtils.getBytesFromFile(path+ Constans.RECOMMEND_JSON2);
+            byte[] json3 = SdCardUtils.getBytesFromFile(path+ Constans.RECOMMEND_JSON3);
 
 
             List<byte[]> listBytes = new ArrayList<>();
             listBytes.add(json1);
             listBytes.add(json2);
             listBytes.add(json3);
+
+
+            String jsonStr1 = null;
+            String jsonStr2 = null;
+            String jsonStr3 = null;
+            //数据为空直接返回
+            if(listBytes.get(0)==null||listBytes.get(1)==null||listBytes.get(2)==null){
+                return;
+            }
+            jsonStr1 = new String(listBytes.get(0));
+            jsonStr2 = new String(listBytes.get(1));
+            jsonStr3 = new String(listBytes.get(2));
+
+
+
+
+            RecommendBeans1 recommendBeans1 = JsonParseUtil
+                    .parseJsonToRecommendBeans1(jsonStr1);
+            RecommendBeans2 recommendBeans2 = JsonParseUtil
+                    .parseJsonToRecommendBeans2(jsonStr2);
+            RecommendBeans3 recommendBeans3 = JsonParseUtil
+                    .parseJsonToRecommendBeans3(jsonStr3);
+
+
             //刷新view数据
-            getMvpView().refleshData(listBytes);
+            getMvpView().refleshData(recommendBeans1,recommendBeans2,recommendBeans3);
 
         }
 
     }
-
-
-
-
 
 
 

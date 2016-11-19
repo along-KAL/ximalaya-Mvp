@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/classify_layoutL1"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/classify_image_L_1"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有书声"
+            android:id="@+id/classify_text_L_1"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/classify_layoutR1"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classify_image_R_1"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有书声"
+                android:id="@+id/classify_text_R_1"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/classify_layoutL2"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classify_image_L_2"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有书声"
+                android:id="@+id/classify_text_L_2"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/classify_layoutR2"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classify_image_R_2"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有书声"
+                android:id="@+id/classify_text_R_2"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/classify_layoutL3"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classify_image_L_3"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有书声"
+                android:id="@+id/classify_text_L_3"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/classify_layoutR3">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classify_image_R_3"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有书声"
+                android:id="@+id/classify_text_R_3"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

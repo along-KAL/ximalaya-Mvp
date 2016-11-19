@@ -195,7 +195,7 @@ public class SampleImageLoad {
 
 
 
-  /*  //使用Builder模式只是当作学习 ----------失败
+  /*  //使用Builder模式 ----------失败
     public static class Builder{
 
 

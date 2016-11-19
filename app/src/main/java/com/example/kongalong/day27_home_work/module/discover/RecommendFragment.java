@@ -22,13 +22,14 @@ import com.example.kongalong.day27_home_work.R;
 import com.example.kongalong.day27_home_work.SampleImageLoad.SampleImageLoad;
 import com.example.kongalong.day27_home_work.adapters.RecommendListAdapter;
 import com.example.kongalong.day27_home_work.adapters.RecommendPagerAdapter1;
-import com.example.kongalong.day27_home_work.adapters.RecommendPagerAdapter2;
+import com.example.kongalong.day27_home_work.adapters.AdvPagerAdapter;
 import com.example.kongalong.day27_home_work.base.BaseFragment;
 import com.example.kongalong.day27_home_work.model.RecommendBeans1;
 import com.example.kongalong.day27_home_work.model.RecommendBeans2;
 import com.example.kongalong.day27_home_work.model.RecommendBeans3;
 import com.example.kongalong.day27_home_work.presenter.RecommendFragmentPresenter;
-import com.example.kongalong.day27_home_work.utils.JsonParseUtil;
+import com.example.kongalong.day27_home_work.utils.ImageLoadUtil;
+import com.example.kongalong.day27_home_work.utils.ViewPagerUtil;
 import com.example.kongalong.day27_home_work.view.RecommendListViewView;
 import com.example.kongalong.day27_home_work.widget.CustomIndicator;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -95,14 +96,6 @@ public class RecommendFragment extends BaseFragment implements
 
         mHandler = new Handler(this);
 
-        //关联presenter和view
-        mRecommendFragmentPresenter = new RecommendFragmentPresenter(this.getContext());
-        mRecommendFragmentPresenter.attachView(this);
-
-        //通过presenter加载数据
-        mRecommendFragmentPresenter.loadData();
-
-
         initListView(ret);
 
         initHeaderFooterViewPager();
@@ -110,6 +103,13 @@ public class RecommendFragment extends BaseFragment implements
         initViewPagerListener();
 
         initListViewOnScrollListener();
+
+        //关联presenter和view
+        mRecommendFragmentPresenter = new RecommendFragmentPresenter(this.getContext());
+        mRecommendFragmentPresenter.attachView(this);
+
+        //通过presenter加载数据
+        mRecommendFragmentPresenter.loadData();
 
     }
 
@@ -153,7 +153,6 @@ public class RecommendFragment extends BaseFragment implements
             @Override
             public void onPageSelected(int position) {
                  mHandler.sendMessage(mHandler.obtainMessage(3,position,0,null));
-
             }
 
             @Override
@@ -215,7 +214,7 @@ public class RecommendFragment extends BaseFragment implements
         }
 
         mHeaderCustomIndicator2.setCount(3);
-         mHeaderPagerAdapter2 = new RecommendPagerAdapter2(mHeaderPagerData2);
+         mHeaderPagerAdapter2 = new AdvPagerAdapter(mHeaderPagerData2);
          mListViewHeaderViewPager2.setAdapter(mHeaderPagerAdapter2);
 
 
@@ -228,7 +227,7 @@ public class RecommendFragment extends BaseFragment implements
         }
         mFooterCustomIndicator.setCount(3);
 
-        mFooterPagerAdapter = new RecommendPagerAdapter2(mFooterPagerData);
+        mFooterPagerAdapter = new AdvPagerAdapter(mFooterPagerData);
         mListViewFooterViewPager.setAdapter(mFooterPagerAdapter);
 
     }
@@ -239,7 +238,7 @@ public class RecommendFragment extends BaseFragment implements
         //mRecommendListView = (ListView) view.findViewById(R.id.recommend_list);
 
         mPullToRefreshListView = (PullToRefreshListView) view.findViewById
-                (R.id.pulltoreflesh);
+                (R.id.recommend_pulltoreflesh);
         //从pullToReflesh获得listview
         mRecommendListView = mPullToRefreshListView.getRefreshableView();
         //头布局
@@ -254,10 +253,10 @@ public class RecommendFragment extends BaseFragment implements
 
         //尾布局
         View footer = LayoutInflater.from(getContext()).inflate
-                (R.layout.recommend_list_footer, mRecommendListView, false);
+                (R.layout.advertisement_list_footer, mRecommendListView, false);
 
         //尾布局中的viewpager
-        mListViewFooterViewPager = (ViewPager) footer.findViewById(R.id.recommend_list_footer_pager);
+        mListViewFooterViewPager = (ViewPager) footer.findViewById(R.id.advertisement_list_footer_pager);
 
 
 
@@ -285,31 +284,9 @@ public class RecommendFragment extends BaseFragment implements
     }
 
 
-
     @Override
     protected void initData() {
-       /* if(InternetUtil.isConnnected(getContext())){
 
-            new LoadBytesAsynctask(this).execute(
-                    Uri.discoverRecommend1,
-                    Uri.discoverRecommend2,
-                    Uri.discoverRecommend3);
-
-
-        }else{
-            String path = getContext().getExternalCacheDir().getAbsolutePath()+ File.separator;
-            byte[] json1 = SdCardUtils.getBytesFromFile(path+"json1");
-            byte[] json2 = SdCardUtils.getBytesFromFile(path+"json2");
-            byte[] json3 = SdCardUtils.getBytesFromFile(path+"json3");
-
-
-            List<byte[]> listBytes = new ArrayList<>();
-            listBytes.add(json1);
-            listBytes.add(json2);
-            listBytes.add(json3);
-            refleshData(listBytes);
-
-        }*/
 
     }
     //初始化图片加载工具
@@ -319,61 +296,50 @@ public class RecommendFragment extends BaseFragment implements
     }
 
 
-   /* @Override
-    public void bytesCallback(List<byte[]> listBytes) {
-
-        SdCardUtils.saveFile(getContext().getExternalCacheDir().getAbsolutePath(),"json1",listBytes.get(0));
-        SdCardUtils.saveFile(getContext().getExternalCacheDir().getAbsolutePath(),"json2",listBytes.get(1));
-        SdCardUtils.saveFile(getContext().getExternalCacheDir().getAbsolutePath(),"json3",listBytes.get(2));
-
-        refleshData(listBytes);
-
-
-    }*/
-
     //通过presenter完成数据请求后调用
     @Override
-    public void refleshData(List<byte[]> listBytes){
+    public void refleshData(RecommendBeans1 recommendBeans1
+    ,RecommendBeans2 recommendBeans2,RecommendBeans3 recommendBeans3){
 
-        String jsonStr1 = null;
-        String jsonStr2 = null;
-        String jsonStr3 = null;
-        //数据为空直接返回
-        if(listBytes.get(0)==null||listBytes.get(1)==null||listBytes.get(2)==null){
-            return;
+        //从RecommendBeans1取出imageUrl
+        List<RecommendBeans1.FocusImagesBean.ListBean> header1ListBean
+                = recommendBeans1.getFocusImages().getList();
+        List<String> header1UrlList = new ArrayList<>();
+        for (int i = 0; i < header1ListBean.size(); i++) {
+            header1UrlList.add(header1ListBean.get(0).getPic());
         }
-            jsonStr1 = new String(listBytes.get(0));
-            jsonStr2 = new String(listBytes.get(1));
-            jsonStr3 = new String(listBytes.get(2));
 
-        RecommendBeans1 recommendBeans1 = JsonParseUtil
-                .parseJsonToRecommendBeans1(jsonStr1);
-        RecommendBeans2 recommendBeans2 = JsonParseUtil
-                .parseJsonToRecommendBeans2(jsonStr2);
-        RecommendBeans3 recommendBeans3 = JsonParseUtil
-                .parseJsonToRecommendBeans3(jsonStr3);
+        //从RecommendBeans3取出imageUrl
+        List<RecommendBeans3.DataBean> footerListBean
+                = recommendBeans3.getData();
+        List<String> footerUrlList = new ArrayList<>();
+        for (int i = 0; i < footerListBean.size(); i++) {
+            footerUrlList.add(recommendBeans3.getData().get(i).getCover());
+        }
 
-        //刷新头布局viewpager1数据
-        refleshHeaderPagerData1(recommendBeans1);
+        //刷新头布局viewpager数据
+        ViewPagerUtil.refleshPagerData(getContext()
+                ,header1UrlList
+                ,mHeaderPagerData1
+                ,mHeaderCustomIndicator1
+                ,mSampleImageLoad
+                ,mHeaderPagerAdapter1);
+
+        //刷新尾布局广告viewpager数据
+        ViewPagerUtil.refleshPagerData(getContext()
+                ,footerUrlList
+                ,mFooterPagerData
+                ,mFooterCustomIndicator
+                ,mSampleImageLoad
+                ,mFooterPagerAdapter);
+
         //刷新头布局viewpager2数据
         refleshHeaderPagerData2(recommendBeans1);
-        //刷新尾布局viewpager数据
-        refleshFooterPagerData(recommendBeans3);
+
         //刷新listView数据
         refleshRecommendListViewData(recommendBeans1,recommendBeans2);
     }
 
-    private void refleshFooterPagerData(RecommendBeans3 recommendBeans3) {
-
-        for (int i = 0; i < mFooterPagerData.size(); i++) {
-
-            int tempI = i%recommendBeans3.getData().size();
-            showImage(recommendBeans3.getData().get(tempI).getCover(),(ImageView)
-                    mFooterPagerData.get(i));
-
-        }
-
-    }
 
 
     private void refleshRecommendListViewData(RecommendBeans1 recommendBeans1, RecommendBeans2 recommendBeans2) {
@@ -434,7 +400,7 @@ public class RecommendFragment extends BaseFragment implements
                 linearLayout4.setVisibility(View.INVISIBLE);
                 break;
             }
-            showImage(pagerDatabeans.get(++index).getCoverPath(),imageView1);
+            ImageLoadUtil.showImage(mSampleImageLoad,pagerDatabeans.get(++index).getCoverPath(),imageView1);
             textView1.setText(pagerDatabeans.get(index).getTitle());
             if(index==pagerDatabeans.size()-1){
                 linearLayout2.setVisibility(View.INVISIBLE);
@@ -442,52 +408,27 @@ public class RecommendFragment extends BaseFragment implements
                 linearLayout4.setVisibility(View.INVISIBLE);
                 break;
             }
-            showImage(pagerDatabeans.get(++index).getCoverPath(), imageView2);
+            ImageLoadUtil.showImage(mSampleImageLoad,pagerDatabeans.get(++index).getCoverPath(), imageView2);
             textView2.setText(pagerDatabeans.get(index).getTitle());
             if(index==pagerDatabeans.size()-1){
                 linearLayout3.setVisibility(View.INVISIBLE);
                 linearLayout4.setVisibility(View.INVISIBLE);
                 break;
             }
-            showImage(pagerDatabeans.get(++index).getCoverPath(), imageView3);
+            ImageLoadUtil.showImage(mSampleImageLoad,pagerDatabeans.get(++index).getCoverPath(), imageView3);
             textView3.setText(pagerDatabeans.get(index).getTitle());
             if(index==pagerDatabeans.size()-1){
                 linearLayout4.setVisibility(View.INVISIBLE);
                 break;
             }
-            showImage(pagerDatabeans.get(++index).getCoverPath(), imageView4);
+            ImageLoadUtil.showImage(mSampleImageLoad,pagerDatabeans.get(++index).getCoverPath(), imageView4);
             textView4.setText(pagerDatabeans.get(index).getTitle());
         }
 
     }
 
 
-    private void refleshHeaderPagerData1(RecommendBeans1 mRecommendBeans1) {
 
-        List<RecommendBeans1.FocusImagesBean.ListBean> pagerDatabeans = mRecommendBeans1
-                .getFocusImages().getList();
-        //根据数据动态生成相应数量pager
-        int value = pagerDatabeans.size() - mHeaderPagerData1.size();
-        if(value>0){
-            for (int i = 0; i < value; i++) {
-                ImageView imageView = new ImageView(getContext());
-                imageView.setImageResource(R.mipmap.ic_launcher);
-                mHeaderPagerData1.add(imageView);
-            }
-        }else if(value<0){
-            for (int i = 0; i < Math.abs(value); i++) {
-                mHeaderPagerData1.remove(mHeaderPagerData1.size()-1);
-            }
-        }
-
-        mHeaderCustomIndicator1.setCount(mHeaderPagerData1.size());
-
-        for (int i = 0; i < mHeaderPagerData1.size(); i++) {
-            showImage(pagerDatabeans.get(i).getPic(),(ImageView) mHeaderPagerData1.get(i));
-        }
-        //mHeaderPagerAdapter1.notifyDataSetChanged();
-
-    }
 
     //实现无线轮播
     @Override
@@ -515,16 +456,6 @@ public class RecommendFragment extends BaseFragment implements
         return true;
     }
 
-
-    //获取网络或本地图片
-    public void showImage(String path,ImageView imageView){
-
-        mSampleImageLoad.initParams()
-                .setUrl(path)
-                .setImageSize(100,100)
-                .setImageView(imageView)
-                .attachToView();
-    }
 
 
 }

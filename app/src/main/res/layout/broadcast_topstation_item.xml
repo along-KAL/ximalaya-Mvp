@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_main_title"
+            android:text="排行榜"
+            android:layout_margin="10dp"
+            android:textColor="#646262"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_more"
+            android:text="更多"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:textColor="#646262"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/broadcast_topstation_iamge1"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_below="@+id/broadcast_topstation_more"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_title1"
+            android:text="后生可畏新人榜"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0b0b0b"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_alignTop="@+id/broadcast_topstation_iamge1"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_tag1"
+            android:textColor="#a4a1a1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_title1"
+            android:layout_alignLeft="@+id/broadcast_topstation_title1"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge1"
+            android:text="dj灵气"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_count1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_tag1"
+            android:textColor="#a4a1a1"
+            android:layout_alignLeft="@+id/broadcast_topstation_title1"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge1"
+            android:text="dj灵气"/>
+
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/broadcast_topstation_iamge2"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher"
+          />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_title2"
+            android:text="后生可畏新人榜"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0b0b0b"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_alignTop="@+id/broadcast_topstation_iamge2"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_tag2"
+            android:textColor="#a4a1a1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_title2"
+            android:layout_alignLeft="@+id/broadcast_topstation_title2"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge2"
+            android:text="dj灵气"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_count2"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_tag2"
+            android:textColor="#a4a1a1"
+            android:layout_alignLeft="@+id/broadcast_topstation_title2"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge2"
+            android:text="dj灵气"/>
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/broadcast_topstation_iamge3"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_title3"
+            android:text="后生可畏新人榜"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0b0b0b"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_alignTop="@+id/broadcast_topstation_iamge3"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_tag3"
+            android:textColor="#a4a1a1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_title3"
+            android:layout_alignLeft="@+id/broadcast_topstation_title3"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge3"
+            android:text="dj灵气"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broadcast_topstation_count3"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_below="@+id/broadcast_topstation_tag3"
+            android:textColor="#a4a1a1"
+            android:layout_alignLeft="@+id/broadcast_topstation_title3"
+            android:layout_toRightOf="@+id/broadcast_topstation_iamge3"
+            android:text="dj灵气"/>
+
+
+    </RelativeLayout>
+</LinearLayout>

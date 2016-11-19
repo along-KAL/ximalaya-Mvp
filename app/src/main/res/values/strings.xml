@@ -7,8 +7,8 @@
     <string-array name="discoverTitle">
         <item>推荐</item>
         <item>分类</item>
-        <item>榜单</item>
         <item>广播</item>
+        <item>榜单</item>
         <item>主播</item>
     </string-array>
 </resources>

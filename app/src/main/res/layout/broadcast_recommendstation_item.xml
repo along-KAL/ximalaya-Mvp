@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/broadcast_recommend_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推荐电台"
+        android:layout_margin="10dp"
+        android:layout_alignParentLeft="true"/>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/broadcast_recommend_title">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/image_default"
+                android:id="@+id/broadcast_recommend_image1"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/broadcast_recommend_text1"
+                android:lines="2"
+                android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/broadcast_recommend_image1"
+                android:layout_alignLeft="@+id/broadcast_recommend_image1"
+                android:layout_alignRight="@+id/broadcast_recommend_image1"
+                android:textColor="#6c6767"
+                android:text="--------------"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/image_default"
+                android:id="@+id/broadcast_recommend_image2"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/broadcast_recommend_text2"
+                android:lines="2"
+                android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/broadcast_recommend_image2"
+                android:layout_alignLeft="@+id/broadcast_recommend_image2"
+                android:layout_alignRight="@+id/broadcast_recommend_image2"
+                android:textColor="#6c6767"
+                android:text="--------------"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/image_default"
+                android:id="@+id/broadcast_recommend_image3"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/broadcast_recommend_text3"
+                android:lines="2"
+                android:ellipsize="end"
+                android:textSize="13sp"
+                android:layout_below="@+id/broadcast_recommend_image3"
+                android:layout_alignLeft="@+id/broadcast_recommend_image3"
+                android:layout_alignRight="@+id/broadcast_recommend_image3"
+                android:textColor="#6c6767"
+                android:text="--------------"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

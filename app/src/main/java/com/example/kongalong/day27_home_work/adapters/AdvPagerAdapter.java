@@ -9,11 +9,11 @@ import java.util.List;
 /**
  * Created by kongalong on 2016/11/10.
  */
-public class RecommendPagerAdapter2 extends PagerAdapter {
+public class AdvPagerAdapter extends PagerAdapter {
 
     private List<View> mPagerData1;
 
-    public RecommendPagerAdapter2(List<View> pagerData1) {
+    public AdvPagerAdapter(List<View> pagerData1) {
         this.mPagerData1 = pagerData1;
     }
 

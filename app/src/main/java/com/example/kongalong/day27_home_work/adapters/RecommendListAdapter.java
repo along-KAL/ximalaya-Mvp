@@ -17,6 +17,7 @@ import com.example.kongalong.day27_home_work.R;
 import com.example.kongalong.day27_home_work.SampleImageLoad.SampleImageLoad;
 import com.example.kongalong.day27_home_work.model.RecommendBeans1;
 import com.example.kongalong.day27_home_work.model.RecommendBeans2;
+import com.example.kongalong.day27_home_work.utils.ImageLoadUtil;
 
 import java.util.List;
 
@@ -175,12 +176,12 @@ public class RecommendListAdapter extends BaseAdapter {
                             !=null?guessList.get(5).getTags():"");
 
                     if(!mIsScroll){
-                        showImage(guessList.get(0).getCoverLarge(),guessHolder.mImage1);
-                        showImage(guessList.get(1).getCoverLarge(),guessHolder.mImage2);
-                        showImage(guessList.get(2).getCoverLarge(),guessHolder.mImage3);
-                        showImage(guessList.get(3).getCoverLarge(),guessHolder.mImage4);
-                        showImage(guessList.get(4).getCoverLarge(),guessHolder.mImage5);
-                        showImage(guessList.get(5).getCoverLarge(),guessHolder.mImage6);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(0).getCoverLarge(),guessHolder.mImage1);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(1).getCoverLarge(),guessHolder.mImage2);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(2).getCoverLarge(),guessHolder.mImage3);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(3).getCoverLarge(),guessHolder.mImage4);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(4).getCoverLarge(),guessHolder.mImage5);
+                        ImageLoadUtil.showImage(mSampleImageLoad,guessList.get(5).getCoverLarge(),guessHolder.mImage6);
                     }
 
                     break;
@@ -243,11 +244,11 @@ public class RecommendListAdapter extends BaseAdapter {
 
 
                     if(!mIsScroll){
-                        showImage(editRecommendList.get(0).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,editRecommendList.get(0).getCoverLarge(),
                                 normalHolder.mImage1);
-                        showImage(editRecommendList.get(1).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,editRecommendList.get(1).getCoverLarge(),
                                 normalHolder.mImage2);
-                        showImage(editRecommendList.get(2).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,editRecommendList.get(2).getCoverLarge(),
                                 normalHolder.mImage3);
                     }
 
@@ -300,9 +301,9 @@ public class RecommendListAdapter extends BaseAdapter {
                  qualityHolder.mText33.setText(speciaList.get(1).getFootnote());
 
                  if(!mIsScroll){
-                     showImage(speciaList.get(0).getCoverPath(),
+                     ImageLoadUtil.showImage(mSampleImageLoad,speciaList.get(0).getCoverPath(),
                              qualityHolder.mImage1);
-                     showImage(speciaList.get(1).getCoverPath(),
+                     ImageLoadUtil.showImage(mSampleImageLoad,speciaList.get(1).getCoverPath(),
                              qualityHolder.mImage11);
                  }
 
@@ -366,11 +367,11 @@ public class RecommendListAdapter extends BaseAdapter {
 
 
                     if(!mIsScroll){
-                        showImage(normalList.getList().get(0).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,normalList.getList().get(0).getCoverLarge(),
                                 normalHolder.mImage1);
-                        showImage(normalList.getList().get(1).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,normalList.getList().get(1).getCoverLarge(),
                                 normalHolder.mImage2);
-                        showImage(normalList.getList().get(2).getCoverLarge(),
+                        ImageLoadUtil.showImage(mSampleImageLoad,normalList.getList().get(2).getCoverLarge(),
                                 normalHolder.mImage3);
                     }
 
@@ -455,12 +456,5 @@ public class RecommendListAdapter extends BaseAdapter {
         private TextView mShortText3;
 
     }
-    public void showImage(String path,ImageView imageView){
 
-        mSampleImageLoad.initParams()
-                .setUrl(path)
-                .setImageSize(100,100)
-                .setImageView(imageView)
-                .attachToView();
-    }
 }

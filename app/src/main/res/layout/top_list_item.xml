@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:id="@+id/top_list_gap"
+        android:background="#f1eeee"
+        android:visibility="gone"
+        ></View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_main_title"
+        android:text="主播榜单"
+        android:visibility="gone"
+        android:layout_margin="10dp"
+        android:textColor="#646262"
+        android:layout_below="@+id/top_list_gap"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_iamge"
+        android:layout_margin="10dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@+id/top_main_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_title"
+        android:text="后生可畏新人榜"
+        android:layout_marginLeft="10dp"
+        android:textColor="#0b0b0b"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_alignTop="@+id/top_iamge"
+        android:layout_toRightOf="@+id/top_iamge"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_tag1"
+        android:textColor="#a4a1a1"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_below="@+id/top_title"
+        android:layout_alignLeft="@+id/top_title"
+        android:layout_toRightOf="@+id/top_iamge"
+        android:text="dj灵气"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_tag2"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_below="@+id/top_tag1"
+        android:textColor="#a4a1a1"
+        android:layout_alignLeft="@+id/top_title"
+        android:layout_toRightOf="@+id/top_iamge"
+        android:text="dj灵气"/>
+
+
+</RelativeLayout>
