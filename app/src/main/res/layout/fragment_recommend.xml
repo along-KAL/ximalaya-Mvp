@@ -3,7 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              xmlns:app="http://schemas.android.com/apk/res-auto"
-             tools:context="com.example.kongalong.day27_home_work.module.discover.RecommendFragment">
+             tools:context="com.example.kongalong.ximalaya_mvp.module.discover.RecommendFragment">
 
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView

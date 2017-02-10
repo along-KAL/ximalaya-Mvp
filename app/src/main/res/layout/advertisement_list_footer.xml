@@ -30,7 +30,7 @@
         android:layout_height="100dp"
         android:id="@+id/advertisement_list_footer_pager">
     </android.support.v4.view.ViewPager>
-    <com.example.kongalong.day27_home_work.widget.CustomIndicator
+    <com.example.kongalong.ximalaya_mvp.widget.CustomIndicator
         android:id="@+id/indicator3"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
