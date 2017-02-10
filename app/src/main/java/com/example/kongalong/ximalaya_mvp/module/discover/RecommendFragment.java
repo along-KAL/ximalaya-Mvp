@@ -1,7 +1,9 @@
 package com.example.kongalong.ximalaya_mvp.module.discover;
 
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -9,13 +11,14 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.kongalong.ximalaya_mvp.MyApp;
@@ -35,6 +38,7 @@ import com.example.kongalong.ximalaya_mvp.view.RecommendListViewView;
 import com.example.kongalong.ximalaya_mvp.widget.CustomIndicator;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -209,6 +213,9 @@ public class RecommendFragment extends BaseFragment implements
 
         mListViewHeaderViewPager1.setCurrentItem(Integer.MAX_VALUE/2);
 
+
+        ViewPagerScroller mPagerScroller=new ViewPagerScroller(getActivity());
+        mPagerScroller.initViewPagerScroll(mListViewHeaderViewPager1);
         //header2
         mHeaderPagerData2 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -440,14 +447,15 @@ public class RecommendFragment extends BaseFragment implements
     //实现无线轮播
     @Override
     public boolean handleMessage(Message msg) {
-        Log.d("flag", "handleMessage: " + msg.what);
+        //Log.d("flag", "handleMessage: " + msg.what);
             switch(msg.what) {
                 case 1:
                     if (mHandler.hasMessages(1)) {
                         mHandler.removeMessages(1);
                     }
                     mCurrentPosition++;
-                    mListViewHeaderViewPager1.setCurrentItem(mCurrentPosition);
+                    //Log.d("flag", "handleMessage: " +mCurrentPosition);
+                    mListViewHeaderViewPager1.setCurrentItem(mCurrentPosition,true);
                    // mHandler.sendEmptyMessageDelayed(1, 2000);
                   //  Log.d("flag", "handleMessage: " +mCurrentPosition);
                     break;
@@ -463,6 +471,53 @@ public class RecommendFragment extends BaseFragment implements
         return true;
     }
 
+    public class ViewPagerScroller extends Scroller {
 
+        private int mScrollDuration = 800; // 滑动速度
+
+        /**
+         * 设置速度速度
+         *
+         * @param duration
+         */
+        public void setScrollDuration(int duration) {
+            this.mScrollDuration = duration;
+        }
+
+        public ViewPagerScroller(Context context) {
+            super(context);
+        }
+
+        public ViewPagerScroller(Context context, Interpolator interpolator) {
+            super(context, interpolator);
+        }
+
+        @SuppressLint("NewApi")
+        public ViewPagerScroller(Context context, Interpolator interpolator,
+                                 boolean flywheel) {
+            super(context, interpolator, flywheel);
+        }
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy, int duration) {
+            super.startScroll(startX, startY, dx, dy, mScrollDuration);
+        }
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy) {
+            super.startScroll(startX, startY, dx, dy, mScrollDuration);
+        }
+
+        public void initViewPagerScroll(ViewPager viewPager) {
+            try {
+                Field mScroller = ViewPager.class.getDeclaredField("mScroller");
+                mScroller.setAccessible(true);
+                mScroller.set(viewPager, this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
 }
