@@ -125,10 +125,10 @@ public class RecommendFragment extends BaseFragment implements
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 if(scrollState==SCROLL_STATE_IDLE){
-                    mRecommendListAdapter.setIsScroll(false);
-                    mRecommendListAdapter.notifyDataSetChanged();
+                   // mRecommendListAdapter.setIsScroll(false);
+                    //mRecommendListAdapter.notifyDataSetChanged();
                 }else{
-                    mRecommendListAdapter.setIsScroll(true);
+                   // mRecommendListAdapter.setIsScroll(true);
                 }
 
             }
