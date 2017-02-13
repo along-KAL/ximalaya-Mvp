@@ -2,8 +2,8 @@ package com.example.kongalong.ximalaya_mvp.presenter;
 
 import android.content.Context;
 
-import com.example.kongalong.ximalaya_mvp.Constants.Constans;
-import com.example.kongalong.ximalaya_mvp.Uri.Uri;
+import com.example.kongalong.ximalaya_mvp.constants.Constans;
+import com.example.kongalong.ximalaya_mvp.uri.Uri;
 import com.example.kongalong.ximalaya_mvp.asynctasks.LoadBytesAsynctask;
 import com.example.kongalong.ximalaya_mvp.callbacks.OnBytesCallback;
 import com.example.kongalong.ximalaya_mvp.model.ClassifyAdvBeans;

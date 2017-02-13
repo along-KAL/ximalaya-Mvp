@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.kongalong.ximalaya_mvp.R;
-import com.example.kongalong.ximalaya_mvp.SampleImageLoad.SampleImageLoad;
+import com.example.kongalong.ximalaya_mvp.imageLoad.SampleImageLoad;
 import com.example.kongalong.ximalaya_mvp.widget.CustomIndicator;
 
 import java.util.List;

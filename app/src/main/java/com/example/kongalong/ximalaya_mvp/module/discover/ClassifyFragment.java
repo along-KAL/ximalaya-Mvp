@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.kongalong.ximalaya_mvp.MyApp;
 import com.example.kongalong.ximalaya_mvp.R;
-import com.example.kongalong.ximalaya_mvp.SampleImageLoad.SampleImageLoad;
+import com.example.kongalong.ximalaya_mvp.imageLoad.SampleImageLoad;
 import com.example.kongalong.ximalaya_mvp.adapters.AdvPagerAdapter;
 import com.example.kongalong.ximalaya_mvp.adapters.ClassifyListAdapter;
 import com.example.kongalong.ximalaya_mvp.base.BaseFragment;

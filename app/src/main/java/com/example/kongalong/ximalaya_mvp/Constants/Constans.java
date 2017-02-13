@@ -1,4 +1,4 @@
-package com.example.kongalong.ximalaya_mvp.Constants;
+package com.example.kongalong.ximalaya_mvp.constants;
 
 /**
  * Created by kongalong on 2016/11/11.

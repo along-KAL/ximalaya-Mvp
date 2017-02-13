@@ -4,7 +4,7 @@ import android.app.Application;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
-import com.example.kongalong.ximalaya_mvp.SampleImageLoad.SampleImageLoad;
+import com.example.kongalong.ximalaya_mvp.imageLoad.SampleImageLoad;
 
 /**
  * Created by kongalong on 2016/11/15.

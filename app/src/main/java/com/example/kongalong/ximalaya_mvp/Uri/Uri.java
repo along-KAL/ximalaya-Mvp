@@ -1,4 +1,4 @@
-package com.example.kongalong.ximalaya_mvp.Uri;
+package com.example.kongalong.ximalaya_mvp.uri;
 
 /**
  * Created by kongalong on 2016/11/10.

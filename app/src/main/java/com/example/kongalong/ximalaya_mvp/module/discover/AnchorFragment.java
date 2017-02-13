@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.kongalong.ximalaya_mvp.MyApp;
 import com.example.kongalong.ximalaya_mvp.R;
-import com.example.kongalong.ximalaya_mvp.SampleImageLoad.SampleImageLoad;
+import com.example.kongalong.ximalaya_mvp.imageLoad.SampleImageLoad;
 import com.example.kongalong.ximalaya_mvp.adapters.AnchorListAdapter;
 import com.example.kongalong.ximalaya_mvp.base.BaseFragment;
 import com.example.kongalong.ximalaya_mvp.model.AnchorBeans;

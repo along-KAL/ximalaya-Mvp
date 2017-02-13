@@ -1,4 +1,4 @@
-package com.example.kongalong.ximalaya_mvp.SampleImageLoad;
+package com.example.kongalong.ximalaya_mvp.imageLoad;
 
 /**
  * Created by kongalong on 2016/11/8.

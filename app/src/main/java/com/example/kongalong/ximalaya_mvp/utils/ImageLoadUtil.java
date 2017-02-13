@@ -2,7 +2,7 @@ package com.example.kongalong.ximalaya_mvp.utils;
 
 import android.widget.ImageView;
 
-import com.example.kongalong.ximalaya_mvp.SampleImageLoad.SampleImageLoad;
+import com.example.kongalong.ximalaya_mvp.imageLoad.SampleImageLoad;
 
 /**
  * Created by kongalong on 2016/11/17.
